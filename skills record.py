@@ -1,6 +1,10 @@
 
 # a function that will insert the users data into the database
-def insert_user(skills_record, firstname, skill, level):
+def insert_user(skills_record):
+    firstname = input("Enter a first name: ")
+    skill = input("Enter the name of the skill: ")
+    level = input("Enter the level for the skill from 1 - 10 (For example: 1 = Novice, 10 = Advanced): ")
+    level = int(level)
     user_info = {
         "Name": firstname,
         "Skill": skill,
@@ -61,11 +65,7 @@ def main_menu():
         choice = input("\nEnter what you want to do (1-6): ")
 
         if choice == '1':
-            firstname = input("Enter a first name: ")
-            skill = input("Enter the name of the skill: ")
-            level = input("Enter the level for the skill from 1 - 10 (For example: 1 = Novice, 10 = Advanced): ")
-            level = int(level)
-            insert_user(skills_record, firstname, skill, level)
+            insert_user(skills_record)
         elif choice == '2':
             firstname = input("Enter the name of the user you wish to delete: ")
             skills_record = delete_user(skills_record, firstname)
